@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-demo-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spring-boot-demo
+  template:
+    metadata:
+      labels:
+        app: spring-boot-demo
+    spec:
+      containers:
+      - name: spring-boot-demo-container
+        image: cityisbetter/spring-boot-demo:latest # Placeholder, Jenkins will update this
+        ports:
+        - containerPort: 8081
